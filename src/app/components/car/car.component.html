@@ -11,6 +11,8 @@
         <th>Renk Id</th>
         <th>Üretim Yılı</th>
         <th>Günlük Ücreti</th>
+        <th>Açıklama</th>
+
       </tr>
     </thead>
     <tr *ngFor="let car of cars">
@@ -19,5 +21,6 @@
       <td>{{car.colorId}}</td>
       <td>{{car.modelYear}}</td>
       <td>{{car.dailyPrice}}</td>
+      <td>{{car.description}}</td>
     </tr>
   </table>
