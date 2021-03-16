@@ -6,6 +6,8 @@
     <th>Renkler</th>
   </tr>
 </thead>
+
+<!-- 
 <table class="table">
     <thead>
       <tr>
@@ -14,7 +16,14 @@
       </tr>
     </thead>
     <tr *ngFor="let color of colors">
-      <td>{{color.colorId}}</td>
+      <td>{{color.colorId}}</td> 
       <td>{{color.name}}</td>
     </tr>
-  </table>
+  </table>  -->
+  
+<ul class="list-group">
+  <li (click)="setCurrentColor(color)" 
+  routerLink = "/cars/color/{{color.colorId}}"
+  *ngFor="let color of colors" class="list-group-item">{{color.name}}</li>
+</ul>
+
