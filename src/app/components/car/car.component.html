@@ -16,13 +16,16 @@
 
       </tr>
     </thead>
-    <tr *ngFor="let car of cars">
-      <td>{{car.carId}}</td>
-      <td>{{car.brandName}}</td>
-      <td>{{car.carName}}</td>
-      <td>{{car.colorName}}</td>
-      <td>{{car.modelYear}}</td>
-      <td>{{car.dailyPrice}}</td>
-      <td>{{car.description}}</td>
-    </tr>
+    <tbody>
+      <tr *ngFor="let car of cars">
+        <td>{{car.carId}}</td>
+        <td>{{car.brandName}}</td>
+        <td>{{car.carName}}</td>
+        <td>{{car.colorName}}</td>
+        <td>{{car.modelYear}}</td>
+        <td>{{car.dailyPrice}}</td>
+        <td>{{car.description}}</td>
+        <td><button  routerLink="carimages/car/{{car.carId}}" class="btn btn-danger" type="button">Resim</button></td>
+      </tr>
+    </tbody>
   </table>
