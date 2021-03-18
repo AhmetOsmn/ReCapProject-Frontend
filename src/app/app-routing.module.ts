@@ -10,19 +10,18 @@ import { RentalComponent } from './components/rental/rental.component';
 const routes: Routes = [
   {path:"",pathMatch:"full",component:CarComponent},
 
-  {path:"cars",component:CarComponent},
   {path:"colors",component:ColorComponent},
   {path:"brands",component:BrandComponent},
   {path:"rentals",component:RentalComponent},
   {path:"customers",component:CustomerComponent},
 
   {path:"cars/brand/:brandId",component:CarComponent},
-  {path:"cars/color/:colorId",component:CarComponent},
+  {path:"cars/color/:colorId",component:CarImageComponent},
 
     
   {path:"carimages/car/:carId",component:CarImageComponent},
   {path:"cardetails/color/:colorId/carimages/car/:carId",component:CarImageComponent},
-  {path:"cardetails/brand/:brandId/carimages/car/:carId",component:CarImageComponent}
+  //{path:"carimages/car/:carId",component:CarImageComponent}
 
 ];
 
