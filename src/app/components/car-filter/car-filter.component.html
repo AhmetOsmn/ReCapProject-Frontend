@@ -10,11 +10,14 @@
           </select>
     </div>
     <div class="col col-2">
-        <a 
-        routerLink="/cars/filter/{{brandFilter}}/{{colorFilter}}" class="btn btn-warning">Filtrele</a>
+        <div *ngIf="brandFilter">
+          <a routerLink="/cars/filter/{{brandFilter}}/{{colorFilter}}" class="btn btn-primary">Filtrele</a>
         </div>
-        <div class="col col-2">
-            <a 
-            routerLink="/cars" class="btn btn-danger">Temizle</a>
-        </div>
+        <div *ngIf="!brandFilter">
+            <a routerLink="/cars/filter/0/{{colorFilter}}" class="btn btn-primary">Filtrele</a>
+          </div>
+    </div>
+    <div class="col col-2">
+        <a routerLink="" class="btn btn-danger">Temizle</a>
+    </div>
 </div>

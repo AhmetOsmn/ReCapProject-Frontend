@@ -18,9 +18,9 @@ const routes: Routes = [
   {path:"cars/brand/:brandId",component:CarComponent},
   {path:"cars/color/:colorId",component:CarComponent},
   {path:"cars/filter/:brandId",component:CarComponent},
-  {path:"cars/filter/:colorId",component:CarComponent},
   {path:"cars/filter/:brandId/:colorId",component:CarComponent},
-    
+  {path:"cars/filter/0/:colorId",component:CarComponent},
+
   {path:"carimages/car/:carId",component:CarImageComponent},
   {path:"cardetails/color/:colorId/carimages/car/:carId",component:CarImageComponent},
   //{path:"carimages/car/:carId",component:CarImageComponent}

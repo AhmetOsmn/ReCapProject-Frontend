@@ -75,9 +75,6 @@ export class CarComponent implements OnInit {
     })
   }
 
-  setCurrentBrand(brand:Brand){
-    this.currentBrand = brand;
-  }
 
 
 
