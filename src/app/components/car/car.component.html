@@ -1,3 +1,14 @@
+ 
+  <div class="mb-3">
+    <label for="filterText" class="form-label">Araba ara</label>
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="arama ifadesi giriniz">
+  </div>
+
+  <div *ngIf="filterText" class="alert alert-primary">
+      {{filterText}} aradınız
+  </div>
+
+  <app-car-filter></app-car-filter>  
   <thead style="color: crimson;">
     <tr>
       <th>Araçlar</th>
@@ -7,25 +18,26 @@
     <thead>
       <tr>
         <th>Car Id</th>
-        <th>Marka</th>
-        <th>Model</th>
+        <th>Marka - Model</th>
         <th>Renk</th>
         <th>Üretim Yılı</th>
         <th>Günlük Ücreti</th>
+        <th>Saatlik Ücreti</th>
         <th>Açıklama</th>
 
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let car of cars">
+      <tr *ngFor="let car of cars |filterPipe:filterText">
         <td>{{car.carId}}</td>
-        <td>{{car.brandName}}</td>
-        <td>{{car.carName}}</td>
-        <td>{{car.colorName}}</td>
+        <td>{{car.carName | uppercase}}</td>
+        <td>{{car.colorName }}</td>
         <td>{{car.modelYear}}</td>
-        <td>{{car.dailyPrice}}</td>
+        <td>{{car.dailyPrice |currency}}</td>
+        <td>{{car.dailyPrice |hourlyRate:24 |currency}}</td>
         <td>{{car.description}}</td>
         <td><button  routerLink="/carimages/car/{{car.carId}}   " class="btn btn-danger" type="button">Resim</button></td>
+        
       </tr>
     </tbody>
   </table>

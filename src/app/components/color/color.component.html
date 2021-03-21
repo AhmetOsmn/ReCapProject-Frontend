@@ -7,20 +7,6 @@
   </tr>
 </thead>
 
-<!-- 
-<table class="table">
-    <thead>
-      <tr>
-        <th>Id</th>
-        <th>Renk</th>
-      </tr>
-    </thead>
-    <tr *ngFor="let color of colors">
-      <td>{{color.colorId}}</td> 
-      <td>{{color.name}}</td>
-    </tr>
-  </table>  -->
-  
 <ul class="list-group">
   <li (click)="setCurrentColor(color)" 
   routerLink = "/cars/color/{{color.colorId}}"
