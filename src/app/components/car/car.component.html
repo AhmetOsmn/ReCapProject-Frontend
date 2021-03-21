@@ -4,11 +4,8 @@
     <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="arama ifadesi giriniz">
   </div>
 
-  <div *ngIf="filterText" class="alert alert-primary">
-      {{filterText}} aradınız
-  </div>
-
   <app-car-filter></app-car-filter>  
+
   <thead style="color: crimson;">
     <tr>
       <th>Araçlar</th>
@@ -28,7 +25,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let car of cars |filterPipe:filterText">
+      <tr *ngFor="let car of cars |filterCar:filterText">
         <td>{{car.carId}}</td>
         <td>{{car.carName | uppercase}}</td>
         <td>{{car.colorName }}</td>
