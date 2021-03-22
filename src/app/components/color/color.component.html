@@ -9,7 +9,7 @@
 
 <ul class="list-group">
   <li (click)="setCurrentColor(color)" 
-  routerLink = "/cars/color/{{color.colorId}}"
+  routerLink="cars" [queryParams]="{colorId: color.colorId}" queryParamsHandling="merge"
   *ngFor="let color of colors" class="list-group-item">{{color.name}}</li>
 </ul>
 

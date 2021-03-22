@@ -7,6 +7,7 @@ import { BrandService } from 'src/app/services/brand.service';
 import { CarService } from 'src/app/services/car.service';
 import { ColorService } from 'src/app/services/color.service';
 
+
 @Component({
   selector: 'app-car',
   templateUrl: './car.component.html',
@@ -17,8 +18,8 @@ export class CarComponent implements OnInit {
   brands : Brand[] = [];
   colors : Color[] = [];
 
-  currentBrand:Brand;
-  currentColor:Color;
+  currentBrand:number;
+  currentColor:number;
 
   filterText = "";
 
@@ -28,9 +29,15 @@ export class CarComponent implements OnInit {
               private colorService:ColorService) { }
 
   ngOnInit(): void {
-    
-    this.activatedRoute.params.subscribe((params) => {
-      if(params['brandId']){
+
+    this.getBrands();
+    this.getColors();
+
+    this.activatedRoute.queryParams.subscribe((params) => {
+      console.log(params['brandId']);
+      if(params['brandId'] && params['colorId']){
+        this.getCarsByBrandIdAndColorId(params['brandId'],params['colorId']);
+      }else if(params['brandId']){
         this.getCarsByBrand(params['brandId']);
       }
       else if(params['colorId']){
@@ -41,8 +48,7 @@ export class CarComponent implements OnInit {
       }
     })
 
-    this.getBrands();
-    this.getColors();
+    
   }
 
   getCars(){
@@ -72,6 +78,12 @@ export class CarComponent implements OnInit {
   getCarsByColor(colorId:number){
     this.carService.getCarsByColor(colorId).subscribe(response=>{
       this.cars = response.data;
+    })
+  }
+
+  getCarsByBrandIdAndColorId(brandId:number, colorId:number){
+    this.carService.getCarsByBrandAndColor(brandId,colorId).subscribe(response =>{
+      this.cars =response.data;
     })
   }
 

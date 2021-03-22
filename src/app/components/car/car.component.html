@@ -1,10 +1,37 @@
- 
   <div class="mb-3">
     <label for="filterText" class="form-label">Araba ara</label>
     <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="arama ifadesi giriniz">
   </div>
 
-  <app-car-filter></app-car-filter>  
+  <div class="row mb-2">
+    
+    <div class="col col-4">
+        
+        <select class="form-select" id="markasec" [(ngModel)]="currentBrand">
+            <option [ngValue]="undefined" selected>Bütün Markalar</option>
+            <option *ngFor="let brand of brands" value="{{ brand.brandId }}">{{ brand.name }}</option>     
+          </select>
+    </div>
+    
+    <div class="col col-4">
+        
+        <select class="form-select" id="renksec" [(ngModel)]="currentColor">
+            <option [ngValue]="undefined" selected>Bütün Renkler</option>
+            <option *ngFor="let color of colors" value="{{ color.colorId }}">{{ color.name }}</option> 
+          </select>  
+      <br>
+    </div>
+    
+    <div class="col col-2">
+        <div >
+            <a type="button" [routerLink]="['/cars']" [queryParams]="{brandId: currentBrand, colorId: currentColor}" class="btn btn-primary">Filtrele</a>
+        </div>
+    </div>
+    
+    <div class="col col-2">
+        <a routerLink="" class="btn btn-danger">Temizle</a>
+    </div>
+</div>
 
   <thead style="color: crimson;">
     <tr>

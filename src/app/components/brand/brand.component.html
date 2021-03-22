@@ -9,7 +9,7 @@
 
 <ul class="list-group">
   <li (click)="setCurrentBrand(brand)" 
-  routerLink = "/cars/brand/{{brand.brandId}}"
+  routerLink = "cars" [queryParams] = "{brandId: brand.brandId}" queryParamsHandling="merge"
   *ngFor="let brand of brands" [class]="getCurrentBrandClass(brand)">{{brand.name}}</li>
 </ul>
 

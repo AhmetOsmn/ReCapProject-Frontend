@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule} from '@angular/common/http';
-import {FormsModule}  from '@angular/forms';
+import {FormsModule, ReactiveFormsModule}  from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,7 +16,6 @@ import { CarImageComponent } from './components/car/carImage/car-image/car-image
 import { HourlyRatePipe } from './pipes/hourly-rate.pipe';
 import { from } from 'rxjs';
 import { FilterBrandPipe } from './pipes/filter-brand.pipe';
-import { CarFilterComponent } from './components/car-filter/car-filter.component';
 import { FilterCarPipe } from './pipes/filter-car.pipe';
 import { FilterColorPipe } from './pipes/filter-color.pipe';
 
@@ -35,14 +34,14 @@ import { FilterColorPipe } from './pipes/filter-color.pipe';
     HourlyRatePipe,
     FilterCarPipe,
     FilterBrandPipe,
-    CarFilterComponent,
     FilterColorPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
