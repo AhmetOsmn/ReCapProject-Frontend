@@ -1,67 +1,86 @@
-  <div class="mb-3">
-    <label for="filterText" class="form-label">Araba ara</label>
-    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="arama ifadesi giriniz">
-  </div>
-
-  <div class="row mb-2">
-    
-    <div class="col col-4">
-        
-        <select class="form-select" id="markasec" [(ngModel)]="currentBrand">
-            <option [ngValue]="undefined" selected>Bütün Markalar</option>
-            <option *ngFor="let brand of brands" value="{{ brand.brandId }}">{{ brand.name }}</option>     
-          </select>
-    </div>
-    
-    <div class="col col-4">
-        
-        <select class="form-select" id="renksec" [(ngModel)]="currentColor">
-            <option [ngValue]="undefined" selected>Bütün Renkler</option>
-            <option *ngFor="let color of colors" value="{{ color.colorId }}">{{ color.name }}</option> 
-          </select>  
-      <br>
-    </div>
-    
-    <div class="col col-2">
-        <div >
-            <a type="button" [routerLink]="['/cars']" [queryParams]="{brandId: currentBrand, colorId: currentColor}" class="btn btn-primary">Filtrele</a>
-        </div>
-    </div>
-    
-    <div class="col col-2">
-        <a routerLink="" class="btn btn-danger">Temizle</a>
-    </div>
+<div class="mb-3">
+  <label for="filterText" class="form-label">Araba ara</label>
+  <input
+    type="text"
+    [(ngModel)]="filterText"
+    class="form-control"
+    id="filterText"
+    placeholder="arama ifadesi giriniz"
+  />
 </div>
 
-  <thead style="color: crimson;">
+<div class="row mb-2">
+  <div class="col col-4">
+    <select class="form-select" id="markasec" [(ngModel)]="currentBrand">
+      <option [ngValue]="undefined" selected>Bütün Markalar</option>
+      <option *ngFor="let brand of brands" value="{{ brand.brandId }}">
+        {{ brand.name }}
+      </option>
+    </select>
+  </div>
+
+  <div class="col col-4">
+    <select class="form-select" id="renksec" [(ngModel)]="currentColor">
+      <option [ngValue]="undefined" selected>Bütün Renkler</option>
+      <option *ngFor="let color of colors" value="{{ color.colorId }}">
+        {{ color.name }}
+      </option>
+    </select>
+    <br />
+  </div>
+
+  <div class="col col-2">
+    <div>
+      <a
+        type="button"
+        [routerLink]="['/cars']"
+        [queryParams]="{ brandId: currentBrand, colorId: currentColor }"
+        class="btn btn-primary"
+        >Filtrele</a
+      >
+    </div>
+  </div>
+
+  <div class="col col-2">
+    <a routerLink="" class="btn btn-danger">Temizle</a>
+  </div>
+</div>
+
+<thead style="color: crimson">
+  <tr>
+    <th>Araçlar</th>
+  </tr>
+</thead>
+<table class="table">
+  <thead>
     <tr>
-      <th>Araçlar</th>
+      <th>Car Id</th>
+      <th>Marka - Model</th>
+      <th>Renk</th>
+      <th>Üretim Yılı</th>
+      <th>Günlük Ücreti</th>
+      <th>Saatlik Ücreti</th>
+      <th>Açıklama</th>
     </tr>
   </thead>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Car Id</th>
-        <th>Marka - Model</th>
-        <th>Renk</th>
-        <th>Üretim Yılı</th>
-        <th>Günlük Ücreti</th>
-        <th>Saatlik Ücreti</th>
-        <th>Açıklama</th>
-
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let car of cars |filterCar:filterText">
-        <td>{{car.carId}}</td>
-        <td>{{car.carName | uppercase}}</td>
-        <td>{{car.colorName }}</td>
-        <td>{{car.modelYear}}</td>
-        <td>{{car.dailyPrice |currency}}</td>
-        <td>{{car.dailyPrice |hourlyRate:24 |currency}}</td>
-        <td>{{car.description}}</td>
-        <td><button  routerLink="/carimages/car/{{car.carId}} " class="btn btn-warning" type="button">Resim</button></td>
-        
-      </tr>
-    </tbody>
-  </table>
+  <tbody>
+    <tr *ngFor="let car of cars | filterCar: filterText">
+      <td>{{ car.carId }}</td>
+      <td>{{ car.carName | uppercase }}</td>
+      <td>{{ car.colorName }}</td>
+      <td>{{ car.modelYear }}</td>
+      <td>{{ car.dailyPrice | currency }}</td>
+      <td>{{ car.dailyPrice | hourlyRate: 24 | currency }}</td>
+      <td>{{ car.description }}</td>
+      <td>
+        <button
+          routerLink="/carimages/car/{{ car.carId }} "
+          class="btn btn-warning"
+          type="button"
+        >
+          Resim
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
