@@ -25,4 +25,6 @@ export class CarImageService {
     return this.httpClient.get<listResponseModel<CarImage>>(newPath);
   }
 
+  
+
 }

@@ -1,9 +1,8 @@
 <div id="carouselExampleControls" 
-  
-class="carousel slide border border-dark" data-bs-ride="carousel">
- <div class="carousel-inner">
+  class="carousel slide border border-dark" data-bs-ride="carousel">
+ <div class="carousel-inner" >
     
-   <div class="carousel-item " *ngFor="let image of carImages;  index as i; first as firstImage "  [ngClass]="{ active: firstImage }" >
+   <div  class="carousel-item " *ngFor="let image of carImages;  index as i; first as firstImage "  [ngClass]="{ active: firstImage }" >
      <img src="https://localhost:44377/{{image.imagePath}}" class="d-block w-100" alt="image.imagePath">
       
 </div>

@@ -1,0 +1,80 @@
+<div class="container">
+  <div class="row">
+    <div>
+      <div
+        id="carouselExampleControls"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div
+            class="text-center"
+            class="carousel-item"
+            *ngFor="let image of carImages; index as i; first as firstImage"
+            [ngClass]="{ active: firstImage }"
+          >
+            <img
+              src="https://localhost:44377/{{ image.imagePath }}"
+              class="d-block w-100"
+              alt="image.imagePath"
+            />
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleControls"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleControls"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div>
+        <table class="table" class="table table-striped">
+          <thead>
+            <tr>
+              <th>Car Id</th>
+              <th>Marka - Model</th>
+              <th>Renk</th>
+              <th>Üretim Yılı</th>
+              <th>Günlük Ücreti</th>
+              <th>Saatlik Ücreti</th>
+              <th>Açıklama</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let car of cars">
+              <td>{{ car.carId }}</td>
+              <td>{{ car.carName | uppercase }}</td>
+              <td>{{ car.colorName }}</td>
+              <td>{{ car.modelYear }}</td>
+              <td>{{ car.dailyPrice | currency }}</td>
+              <td>{{ car.dailyPrice | hourlyRate: 24 | currency }}</td>
+              <td>{{ car.description }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <button
+    routerLink="/rental"
+    class="btn btn-warning"
+    type="button"
+  >
+    Kiralama
+  </button>
+  </div>
+</div>
