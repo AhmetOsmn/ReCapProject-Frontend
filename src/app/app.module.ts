@@ -18,6 +18,7 @@ import { from } from 'rxjs';
 import { FilterBrandPipe } from './pipes/filter-brand.pipe';
 import { FilterCarPipe } from './pipes/filter-car.pipe';
 import { FilterColorPipe } from './pipes/filter-color.pipe';
+import { RentACarComponent } from './components/rent-a-car/rent-a-car.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { FilterColorPipe } from './pipes/filter-color.pipe';
     HourlyRatePipe,
     FilterCarPipe,
     FilterBrandPipe,
-    FilterColorPipe
+    FilterColorPipe,
+    RentACarComponent
   ],
   imports: [
     BrowserModule,
