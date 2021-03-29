@@ -64,18 +64,19 @@
               <td>{{ car.dailyPrice | currency }}</td>
               <td>{{ car.dailyPrice | hourlyRate: 24 | currency }}</td>
               <td>{{ car.description }}</td>
+              <button
+                routerLink="/rentacar"
+                [queryParams]="{ carId: car.carId }"
+                class="btn btn-warning"
+                type="button"
+                style="background-color: blueviolet; color: white;"
+              >
+                Kirala
+              </button>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
-    <button
-    routerLink="/rentacar"
-    
-    class="btn btn-warning"
-    type="button"
-  >
-    Kirala
-  </button>
   </div>
 </div>

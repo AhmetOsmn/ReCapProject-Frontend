@@ -23,6 +23,6 @@
       <td>{{rental.userName}}</td>
       <td>{{rental.companyName}}</td>
       <td>{{rental.rentDate}}</td>
-      <td>{{rental.returnDate}}</td>
+      <td>{{(rental.returnDate == null) ? "Araç kiralanmış": rental.returnDate}}</td>
     </tr>
   </table>

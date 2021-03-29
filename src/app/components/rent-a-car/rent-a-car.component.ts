@@ -39,7 +39,7 @@ export class RentACarComponent implements OnInit {
   getRentalsByCarId(carId:number){
     this.rentalService.getRentalByCarId(carId).subscribe(response=>{
       this.rentals = response.data;
-      //console.log(response.data)
+      console.log(response.data)
 
     })
   }
